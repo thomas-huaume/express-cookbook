@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  express_cookbook_front:
+    build:
+      context: ${PWD}/front
+      dockerfile: Dockerfile.dev
+    container_name: cookbook-front
+    profiles: ["front"]
+    ports:
+      - "4200:4200"
+    volumes:
+      - ${PWD}/front/:/front
+  express_cookbook_back:
+    build:
+      context: ${PWD}/back
+      dockerfile: Dockerfile.dev
+    container_name: cookbook-back
+    profiles: ["back"]
+    ports:
+      - "3000:3000"
+    volumes:
+      - ${PWD}/back/:/back
