@@ -21,3 +21,15 @@ services:
       - "3000:3000"
     volumes:
       - ${PWD}/back/:/back
+  express_cookbook_db:
+    image: postgres
+    restart: always
+    build:
+      context: ${PWD}/db
+      dockerfile: Dockerfile.dev
+    container_name: cookbook-postgres
+    profiles: ["db"]
+    ports:
+      - "5432:5432"
+    volumes:
+      - ${PWD}/back/:/back
