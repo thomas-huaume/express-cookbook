@@ -6,7 +6,7 @@ services:
       context: ${PWD}/front
       dockerfile: Dockerfile.dev
     container_name: cookbook-front
-    profiles: ["front"]
+    profiles: ["front", "all"]
     ports:
       - "4200:4200"
     volumes:
@@ -16,7 +16,7 @@ services:
       context: ${PWD}/back
       dockerfile: Dockerfile.dev
     container_name: cookbook-back
-    profiles: ["back"]
+    profiles: ["back", "all"]
     ports:
       - "3000:3000"
     volumes:
